@@ -1,0 +1,46 @@
+﻿<ArcGIS defaultAssembly="StreetPictoViewPro.dll" defaultNamespace="StreetPictoViewPro" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{5b1d59a5-397a-4423-843d-5420b88ff632}" version="1.0" desktopVersion="3.1.41833">
+    <Name>StreetPictoViewPro</Name>
+    <Description>StreetPictoViewPro description</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>emyers</Author>
+    <Company>WUDSCCM</Company>
+    <Date>4/28/2023 2:11:36 PM</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="StreetPictoViewPro_Module" className="ProTool" autoLoad="true" caption="ProTool">
+      <controls>
+        <!-- add your controls here -->
+        <tool id="StreetPictoViewPro_PictoView" 
+              caption="PictoView" 
+              className="PictoView" 
+              loadOnClick="true" 
+              smallImage="Images\3DFlyOrbitalTool16.png" 
+              largeImage="Images\3DFlyOrbitalTool32.png" 
+              condition="esri_mapping_mapPane">
+          <tooltip heading="Google Streetview">Opens Google Streetview when the map is clicked.<disabledText /></tooltip>
+        </tool>
+        <button id="StreetPictoViewPro_StreetView" 
+                caption="StreetView" 
+                className="StreetView" 
+                loadOnClick="true" 
+                smallImage="W:\GIS\Tools\Addins for Pro\StreetPictoViewPro\Images\3DWalk16.png" 
+                largeImage="W:\GIS\Tools\Addins for Pro\StreetPictoViewPro\Images\3DWalk32.png" 
+                condition="esri_mapping_mapPane">
+          <tooltip heading="PBC Pictography">Opens PBC Pictography when the map is clicked.<disabledText /></tooltip >
+        </button>
+      </controls>
+    </insertModule>
+    <updateModule refID="esri_mapping">
+      <groups>
+        <updateGroup refID="esri_mapping_navigateGroup">
+          <insertTool refID="StreetPictoViewPro_StreetView" size="large" />
+          <insertTool refID="StreetPictoViewPro_PictoView" size="large" />
+        </updateGroup>
+      </groups>
+    </updateModule>
+  </modules>
+</ArcGIS>
